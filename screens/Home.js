@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Alert, TouchableHighlight, FlatList, TouchableOpacity, TextInput} from 'react-native';
 
 
-export default class Resultat extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state ={
