@@ -46,6 +46,7 @@ UNSAFE_componentWillMount()
 
 render()
 {
+  const { navigation } = this.props;
   if (this.state.datos.length === 0) {
     return (
       <View>
@@ -61,7 +62,8 @@ render()
       <View style = {styles.container}> 
           
         <View>
-            <Text>Benvingut + userName
+            <Text>
+                Benvingut {JSON.stringify(navigation.getParam('name'))}
             </Text>
         </View> 
         <View style = {{flex:0.75}}>

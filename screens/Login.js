@@ -9,7 +9,7 @@ import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import {StyleSheet,View,FlatList,Text,TextInput,TouchableOpacity} from 'react-native';
 
-//import calcularLletraDNI from './esborrar';
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class Login extends Component {
           </View>
           <View>
             
-            <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('Home'))}>
+            <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('Home',{name:this.state.unom}))}>
                     <Text style = {styles.textBoto}>Sign in</Text>       
             </TouchableOpacity> 
             <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('Register'))}>
