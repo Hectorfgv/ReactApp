@@ -16,7 +16,7 @@ export default class UpdateElement extends Component {
     this.state ={
       documentJSON: undefined,
       datos: [],
-      
+      eid: null
     };
   }
 
@@ -24,8 +24,10 @@ export default class UpdateElement extends Component {
 
 render()
 {
+    
     const { navigation } = this.props;
     return (
+        
       <View style = {styles.container}> 
           
         <View>
@@ -48,7 +50,7 @@ render()
               value={this.state.edescripcio}
               >
             </TextInput>
-            <TouchableOpacity style ={styles.boto} onPress={()=> ((this.updateEle(this.state.eid, this.state.enom, this.state.edescripcio)))}>
+            <TouchableOpacity style ={styles.boto} onPress={()=> ((this.updateEle(navigation.getParam('eid'), this.state.enom, this.state.edescripcio)))}>
                     <Text style = {styles.textBoto}>UPDATE</Text>       
             </TouchableOpacity>
             <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('Home'))}>

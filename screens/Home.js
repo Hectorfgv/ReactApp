@@ -62,7 +62,7 @@ render()
       <View style = {styles.container}> 
           
         <View>
-            <Text>
+            <Text style = {styles.textHeader}>
                 Welcome {JSON.stringify(navigation.getParam('name'))}
             </Text>
         </View> 
@@ -72,20 +72,18 @@ render()
             data ={this.state.datos}
             renderItem = {({item}) => 
             <View>  
-                <Text>{"Name: "}{item.nom}{"\n"}{"Description: "}{item.descripcio}{"\n"} </Text>
-                <TouchableOpacity onPress={()=> ((this.deleteEle(this.state.eid)))}>
+                <Text style = {styles.textList}>{"Name: "}{item.nom}{"\n"}{"Description: "}{item.descripcio}{"\n"} </Text>
+                <TouchableOpacity style ={styles.boto} onPress={()=> ((this.deleteEle(item.id)))}>
                     <Text style = {styles.textBoto}>BORRAR</Text>       
                 </TouchableOpacity>
                 
-                <TouchableOpacity  onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:this.state.eid}))}>
+                <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:item.id}))}>
                     <Text style = {styles.textBoto}>UPDATE</Text>       
                 </TouchableOpacity>
-                
-                
+  
                 <Text>{"------------------------------------------------------------------------------------------------------------"} </Text>
             </View>}/>
-              
-          
+
         </View>
         <View>
           <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('AddElement'))}>
@@ -217,10 +215,6 @@ deleteEle(eid)
 
 
 
-
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -263,5 +257,15 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     padding: 10,
   },
+  textHeader:{
+    textAlign: "center",
+    fontSize: 40,
+    fontWeight: "bold"
+  },
+  textList:{
+    fontSize: 16,
+    fontWeight: "bold"
+  },
+  
   
 });

@@ -46,13 +46,13 @@
   "elements": [
     {
       "id": 1,
-      "nom": "Coca-Cola",
-      "descripcio": "Beguda Refrescant"
+      "nom": "fanta",
+      "descripcio": "naranjat"
     },
     {
       "id": 2,
-      "nom": "Fritos",
-      "descripcio": "Snack"
+      "nom": "papas",
+      "descripcio": "saladas"
     },
     {
       "id": 3,
@@ -63,11 +63,6 @@
       "id": 4,
       "nom": "Fruïta",
       "descripcio": "Imprescindible a la dieta Mediterrània"
-    },
-    {
-      "id": 5,
-      "nom": "Llet",
-      "descripcio": "Pot ser Sencera, Semidesnatada o Desnatada"
     },
     {
       "id": 6,
