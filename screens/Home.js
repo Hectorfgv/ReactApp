@@ -63,33 +63,28 @@ render()
           
         <View>
             <Text>
-                Benvingut {JSON.stringify(navigation.getParam('name'))}
+                Welcome {JSON.stringify(navigation.getParam('name'))}
             </Text>
         </View> 
         <View style = {{flex:0.75}}>
+          
             <FlatList
             data ={this.state.datos}
             renderItem = {({item}) => 
             <View>  
                 <Text>{"Name: "}{item.nom}{"\n"}{"Description: "}{item.descripcio}{"\n"} </Text>
-                <TouchableOpacity onPress={()=> ((this.deleteUsu(this.state.uid)))}>
-                    <Text >BORRAR</Text>       
+                <TouchableOpacity onPress={()=> ((this.deleteEle(this.state.eid)))}>
+                    <Text style = {styles.textBoto}>BORRAR</Text>       
                 </TouchableOpacity>
                 
-                <TouchableOpacity  onPress={()=> ((this.updateUsu(this.state.uid, this.state.uuserName, this.state.ucontrasenya, this.state.unom)))}>
-                    <Text >UPDATE</Text>       
+                <TouchableOpacity  onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:this.state.eid}))}>
+                    <Text style = {styles.textBoto}>UPDATE</Text>       
                 </TouchableOpacity>
+                
                 
                 <Text>{"------------------------------------------------------------------------------------------------------------"} </Text>
-            </View>}
-
-            />
-              <TouchableOpacity onPress={()=> ((this.deleteEle(this.state.eid)))}>
-                        <Text >BORRAR</Text>       
-              </TouchableOpacity> 
-              <TouchableOpacity  onPress={()=> ((this.updateEle(this.state.eid, this.state.enom, this.state.edescripcio)))}>
-                        <Text >UPDATE</Text>       
-              </TouchableOpacity> 
+            </View>}/>
+              
           
         </View>
         <View>
@@ -219,6 +214,11 @@ deleteEle(eid)
 
   }
 }
+
+
+
+
+
 
 
 const styles = StyleSheet.create({

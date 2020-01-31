@@ -73,16 +73,6 @@
       "id": 6,
       "nom": "Pa",
       "descripcio": "Del Forn!!!"
-    },
-    {
-      "nom": "balon",
-      "descripcio": "es redondo",
-      "id": 7
-    },
-    {
-      "nom": "cubo",
-      "descripcio": "no es redondo",
-      "id": 8
     }
   ]
 }
