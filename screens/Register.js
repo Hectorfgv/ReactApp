@@ -25,15 +25,6 @@ export default class Register extends Component {
       return (
         <View style={styles.fonsTot}>
           <View>
-          <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
-              placeholder='ID'
-              placeholderTextColor='#FF0000'
-              maxLength = {32}
-              TextSize = {16}
-              onChangeText={(value) => this.setState({uid: value})}
-              value={this.state.uid}
-              >
-            </TextInput>
             <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
               placeholder='NICKNAME'
               placeholderTextColor='#FF0000'
@@ -73,7 +64,7 @@ export default class Register extends Component {
         </View>
         );
       } 
-      usuPost(uid, uuserName, ucontrasenya, unom)
+usuPost(uid, uuserName, ucontrasenya, unom)
 {
   var url = 'http://localhost:3000/usuaris/';
   var data = {

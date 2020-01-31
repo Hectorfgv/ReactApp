@@ -16,6 +16,7 @@ export default class Login extends Component {
     super(props);
         this.state={
           
+        
     };
   }
     
@@ -25,16 +26,17 @@ export default class Login extends Component {
           <View>
             <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
               placeholder='User'
-              placeholderTextColor='#0000FF'
-              
+              placeholderTextColor='#0000FF'        
               maxLength = {12}
-              keyboardType={"number-pad"}
+              keyboardType={"default"}
+              onChangeText={(value) => this.setState({unom: value})}
+              value={this.state.unom}
               >
             </TextInput>
-            <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
+            <TextInput secureTextEntry={true} style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
               placeholder='Password'
               placeholderTextColor='#0000FF'
-              
+              keyboardType={"default"}
               
               >
             </TextInput>
@@ -42,7 +44,7 @@ export default class Login extends Component {
           <View>
             
             <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('Home'))}>
-                    <Text style = {styles.textBoto}>Home</Text>       
+                    <Text style = {styles.textBoto}>Sign in</Text>       
             </TouchableOpacity> 
             <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('Register'))}>
                     <Text style = {styles.textBoto}>Register</Text>       

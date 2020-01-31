@@ -15,7 +15,8 @@ export default class Home extends Component {
     super(props)
     this.state ={
       documentJSON: undefined,
-      datos: []
+      datos: [],
+      //name:this.props.navigation.getParam(name, undefined)
       
     };
   }
@@ -23,7 +24,7 @@ export default class Home extends Component {
 UNSAFE_componentWillMount()
 {
 
-  fetch('http://localhost:3000/usuaris')
+  fetch('http://localhost:3000/elements')
     .then((resposta) => {
       if (resposta.ok) {
         console.log("En willmount");
@@ -58,62 +59,42 @@ render()
   else {
     return (
       <View style = {styles.container}> 
-          <View style = {{flex:0.75}}>
-          <FlatList
-          data ={this.state.datos}
-          renderItem = {({item}) => (<Text> {item.id}{"-"}{item.userName}{"\n"}{item.contrasenya}{"\n"}{item.nom} </Text>)}
-          />
-          <Text>Probant</Text>
-              
+          
+        <View>
+            <Text>Benvingut + userName
+            </Text>
+        </View> 
+        <View style = {{flex:0.75}}>
+            <FlatList
+            data ={this.state.datos}
+            renderItem = {({item}) => 
+            <View>  
+                <Text>{"Name: "}{item.nom}{"\n"}{"Description: "}{item.descripcio}{"\n"} </Text>
+                <TouchableOpacity onPress={()=> ((this.deleteUsu(this.state.uid)))}>
+                    <Text >BORRAR</Text>       
+                </TouchableOpacity>
+                
+                <TouchableOpacity  onPress={()=> ((this.updateUsu(this.state.uid, this.state.uuserName, this.state.ucontrasenya, this.state.unom)))}>
+                    <Text >UPDATE</Text>       
+                </TouchableOpacity>
+                
+                <Text>{"------------------------------------------------------------------------------------------------------------"} </Text>
+            </View>}
+
+            />
+              <TouchableOpacity onPress={()=> ((this.deleteEle(this.state.eid)))}>
+                        <Text >BORRAR</Text>       
+              </TouchableOpacity> 
+              <TouchableOpacity  onPress={()=> ((this.updateEle(this.state.eid, this.state.enom, this.state.edescripcio)))}>
+                        <Text >UPDATE</Text>       
+              </TouchableOpacity> 
+          
         </View>
         <View>
-            <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
-              placeholder='ID'
-              placeholderTextColor='#FF0000'
-              maxLength = {32}
-              TextSize = {16}
-              onChangeText={(value) => this.setState({uid: value})}
-              value={this.state.uid}
-              >
-            </TextInput>
-            <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
-              placeholder='NICKNAME'
-              placeholderTextColor='#FF0000'
-              maxLength = {32}
-              keyboardType={"default"}
-              onChangeText={(value) => this.setState({uuserName: value})}
-              value={this.state.uuserName}
-              >
-            </TextInput>
-            <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
-              placeholder='PASSWORD'
-              placeholderTextColor='#FF0000'
-              maxLength = {32}
-              keyboardType={"password"}
-              onChangeText={(value) => this.setState({ucontrasenya: value})}
-              value={this.state.ucontrasenya}
-              >
-            </TextInput>
-            <TextInput style = {{underlinedColorAndroid: 'blue', borderWidth:2}}
-              placeholder='NAME'
-              placeholderTextColor='#FF0000'
-              maxLength = {9}
-              keyboardType={"default"}
-              onChangeText={(value) => this.setState({unom: value})}
-              value={this.state.unom}
-              >
-            </TextInput>
-          </View> 
-        <View>
-          <TouchableOpacity style ={styles.boto} onPress={()=> ((this.usuPost(this.state.uid, this.state.uuserName, this.state.ucontrasenya, this.state.unom)))}>
-                    <Text style = {styles.textBoto}>INSERTAR</Text>       
+          <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('AddElement'))}>
+                    <Text style = {styles.textBoto}>ADD ELEMENT</Text>       
           </TouchableOpacity> 
-          <TouchableOpacity style ={styles.boto} onPress={()=> ((this.deleteUsu(this.state.uid)))}>
-                    <Text style = {styles.textBoto}>BORRAR</Text>       
-          </TouchableOpacity> 
-          <TouchableOpacity style ={styles.boto} onPress={()=> ((this.updateUsu(this.state.uid, this.state.uuserName, this.state.ucontrasenya, this.state.unom)))}>
-                    <Text style = {styles.textBoto}>UPDATE</Text>       
-          </TouchableOpacity> 
+          
         </View>
       </View>
     );
@@ -121,14 +102,14 @@ render()
 }
 
 
-usuPost(uid, uuserName, ucontrasenya, unom)
+elePost(eid, enom, edescripcio)
 {
-  var url = 'http://localhost:3000/usuaris/';
+  var url = 'http://localhost:3000/elements/';
   var data = {
-    id: uid,
-    userName: uuserName,
-    contrasenya: ucontrasenya,
-    nom: unom
+    id: eid,
+    nom: enom,
+    descripcio: edescripcio,
+    
   };
 
   fetch(url, {
@@ -160,15 +141,15 @@ usuPost(uid, uuserName, ucontrasenya, unom)
     });
 }
 
-updateUsu(uid, uuserName, ucontrasenya, unom)
+updateEle(eid, enom, edescripcio)
 {
   
-  var url = 'http://localhost:3000/usuaris/'+uid;
+  var url = 'http://localhost:3000/elements/'+eid;
   var data = {
-    id: uid,
-    userName: uuserName,
-    contrasenya: ucontrasenya,
-    nom: unom
+    id: eid,
+    nom: enom,
+    descripcio: edescripcio
+   
 
   };
 
@@ -202,10 +183,10 @@ updateUsu(uid, uuserName, ucontrasenya, unom)
 
 }
 
-deleteUsu(uid)
+deleteEle(eid)
 {
 
-  var url = 'http://localhost:3000/usuaris/'+uid;
+  var url = 'http://localhost:3000/elements/'+eid;
 
 
   fetch(url, {
@@ -250,4 +231,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  fonsTot: {
+    flex: 10, 
+  },
+  cap: {
+    flex: 1,
+    borderWidth: 3,
+    borderRadius: 3,
+    backgroundColor:"#ffffff"
+  },
+  llista: {
+    flex: 4,
+    borderWidth: 3,
+    borderRadius: 3,
+    backgroundColor:"#ffffff"
+  },
+  botons: {
+    flex: 2,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  componentEstil:{
+    flex: 3,
+    backgroundColor:"#ffffff"
+  },
+  boto:{
+    backgroundColor: "#ff0000",
+    borderWidth: 3,
+    padding: 10,
+  },
+  
 });
