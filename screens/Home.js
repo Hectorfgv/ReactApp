@@ -66,9 +66,10 @@ render()
                 Welcome {JSON.stringify(navigation.getParam('name'))}
             </Text>
         </View> 
-        <View style = {{flex:0.75}}>
+        <View style = {styles.container}>
           
             <FlatList
+            
             data ={this.state.datos}
             renderItem = {({item}) => 
             <View>  
@@ -77,7 +78,7 @@ render()
                     <Text style = {styles.textBoto}>BORRAR</Text>       
                 </TouchableOpacity>
                 
-                <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:item.id}))}>
+                <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:this.state.id}))}>
                     <Text style = {styles.textBoto}>UPDATE</Text>       
                 </TouchableOpacity>
   
@@ -218,8 +219,9 @@ deleteEle(eid)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#DCDCDC',
   },
   comptador: {
     flex: 1,

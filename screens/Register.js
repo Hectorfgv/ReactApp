@@ -9,7 +9,6 @@ import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import {StyleSheet,View,FlatList,Text,TextInput,TouchableOpacity} from 'react-native';
 
-//import calcularLletraDNI from './esborrar';
 
 export default class Register extends Component {
   constructor(props) {
