@@ -96,7 +96,7 @@ updateEle(eid, enom, edescripcio)
     })
     .then(respuestaJSON => {
       console.log(respuestaJSON);
-      alert("Usuario " + data.userName + " actualizado");
+      alert("Element " + enom + " actualizado");
     })
     .catch(error => {
       console.log("Error de red " + error);

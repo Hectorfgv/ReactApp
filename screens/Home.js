@@ -63,7 +63,7 @@ render()
           
         <View>
             <Text style = {styles.textHeader}>
-                Welcome {JSON.stringify(navigation.getParam('name'))}
+                Welcome {(navigation.getParam('name'))}
             </Text>
         </View> 
         <View style = {styles.container}>
@@ -78,7 +78,7 @@ render()
                     <Text style = {styles.textBoto}>BORRAR</Text>       
                 </TouchableOpacity>
                 
-                <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:this.state.id}))}>
+                <TouchableOpacity style ={styles.boto} onPress={()=> (this.props.navigation.navigate('UpdateElement',{eid:item.id}))}>
                     <Text style = {styles.textBoto}>UPDATE</Text>       
                 </TouchableOpacity>
   

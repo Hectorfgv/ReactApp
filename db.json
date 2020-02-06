@@ -53,19 +53,31 @@
       "contrasenya": "passpedro",
       "nom": "pedro",
       "id": "I3LulcA"
+    },
+    {
+      "userName": "manel",
+      "contrasenya": "1234",
+      "nom": "manel",
+      "id": "1Ope9Pf"
+    },
+    {
+      "userName": "mviel2",
+      "contrasenya": "1234",
+      "nom": "Manel",
+      "id": "dRctSUq"
+    },
+    {
+      "userName": "alavaro",
+      "contrasenya": "1234",
+      "nom": "alvaro",
+      "id": "ZhIWihS"
     }
-    
   ],
   "elements": [
     {
-      "id": 1,
-      "nom": "fanta",
-      "descripcio": "naranjat"
-    },
-    {
       "id": 2,
-      "nom": "papas",
-      "descripcio": "saladas"
+      "nom": "papes",
+      "descripcio": "saladdol/esas"
     },
     {
       "id": 3,
@@ -81,6 +93,51 @@
       "id": 6,
       "nom": "Pa",
       "descripcio": "Del Forn!!!"
+    },
+    {
+      "nom": "pedra",
+      "descripcio": "dura",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "nom": "pedra",
+      "descripcio": "dura"
+    },
+    {
+      "id": 9,
+      "nom": "pedra",
+      "descripcio": "duras"
+    },
+    {
+      "id": 10,
+      "nom": "pedra",
+      "descripcio": "duras"
+    },
+    {
+      "id": 11,
+      "nom": "pedra",
+      "descripcio": "duras"
+    },
+    {
+      "id": 12,
+      "nom": "pedra",
+      "descripcio": "dura"
+    },
+    {
+      "id": 13,
+      "nom": "castanya",
+      "descripcio": "torr;a"
+    },
+    {
+      "id": 14,
+      "nom": "wewe",
+      "descripcio": "wewewewe"
+    },
+    {
+      "id": 15,
+      "nom": "",
+      "descripcio": ""
     }
   ]
 }

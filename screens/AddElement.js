@@ -14,9 +14,10 @@ export default class AddElement extends Component {
   constructor(props) {
     super(props)
     this.state ={
-      documentJSON: undefined,
-      datos: [],
       
+      
+      enom: '',
+      edescripcio: ''
     };
   }
 
@@ -48,7 +49,7 @@ render()
               value={this.state.edescripcio}
               >
             </TextInput>
-            <TouchableOpacity  style ={styles.boto}  onPress={()=> ((this.elePost(this.state.eid, this.state.enom, this.state.edescripcio)))}>
+            <TouchableOpacity  style ={styles.boto}  onPress={()=> ((this.elePost('',this.state.enom, this.state.edescripcio)))}>
                         <Text >ADD</Text>       
             </TouchableOpacity> 
         </View>    
@@ -60,8 +61,8 @@ render()
 
 elePost(eid, enom, edescripcio)
 {
-  var url = 'http://localhost:3000/elements/';
-  var data = {
+  let url = 'http://localhost:3000/elements/';
+  let data = {
     id: eid,
     nom: enom,
     descripcio: edescripcio,
@@ -89,13 +90,13 @@ elePost(eid, enom, edescripcio)
     })
     .then(respuestaJSON => {
       console.log(respuestaJSON);
-      alert("Elemento insertado correctamente " + data.enom);
+      alert("Elemento insertado correctamente " + enom);
     })
     .catch(error => {
 
       console.log("Error de red " + error);
     });
-    }
+  }
 
 }
 

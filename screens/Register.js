@@ -64,7 +64,7 @@ export default class Register extends Component {
         );
       } 
 usuPost(uid, uuserName, ucontrasenya, unom)
-{
+{ 
   var url = 'http://localhost:3000/usuaris/';
   var data = {
     id: uid,

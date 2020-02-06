@@ -32,16 +32,14 @@ export default class Login extends Component {
   };
 
   comprobarLogin(){
-    let nombre = this.state.nombre;
+    
     let password = this.state.password;
     const {navigate} = this.props.navigation;
 
-    fetch('http://localhost:3000/usuaris?userName='+nombre+'&contrasenya='+password)
+    fetch('http://localhost:3000/usuaris?userName='+this.state.nombre+'&contrasenya='+password)
     .then((respuesta) => {
         if (respuesta.ok) {
-          
-            return respuesta.json();
-            
+            return respuesta.json();  
         } else {
           
             console.log("Error conectando a http://localhost:3000");
@@ -52,7 +50,7 @@ export default class Login extends Component {
         if(respuestaJSON.length<1){
           alert("Email o contraseña incorrecta");
         }else {
-          navigate('Home', {name: nombre});
+          navigate('Home', {name: this.state.nombre});
           
           
         }
@@ -76,7 +74,7 @@ export default class Login extends Component {
               placeholder="Username"
               keyboardType="email-address"
               underlineColorAndroid='transparent'
-              onChangeText={(nombre) => this.setState({nombre})}/>
+              onChangeText={(nom) => this.setState({nombre: nom})}/>
         </View>
         
         <View style={styles.inputContainer}>
@@ -95,7 +93,7 @@ export default class Login extends Component {
 
         <TouchableHighlight style={[styles.buttonContainer, styles.registerButton]}
           onPress={() => navigate('Register')}>
-          <Text style={styles.registerText}>¿Need to log ii? ¡Register here!</Text>
+          <Text style={styles.registerText}>Need to log in? ¡Register here!</Text>
         </TouchableHighlight>
 
       </View>
